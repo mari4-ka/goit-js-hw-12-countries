@@ -4,16 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <title>HW 12 Countries</title>
 </head>
 
-<body>
-  <section class="container">
-    <h1 class="main-title">Find country</h1>
-    <input class="search" type="text" name="query" placeholder="Enter country name" />
-    <ul class="list"></ul>
-    <div class="card"></div>
-  </section>
-</body>
+  <body>
+    <div class="container">
+      <h1 class="title">Please, enter country name</h1>
+      <input class="input" type="text" name="query" placeholder="country" autocomplete="off" />
+      <div class="js-card-container"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 
 </html>
