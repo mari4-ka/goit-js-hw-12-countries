@@ -6,8 +6,7 @@ import '@pnotify/core/dist/PNotify.css';
 
 import countriesMarkup from '../templates/markup.hbs';
 import countriesList from '../templates/list.hbs';
-
-const debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 
 const refs = {
   input: document.querySelector('.input'),
@@ -18,9 +17,9 @@ refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch(e) {
   let countrySearch = e.target.value;
+    clearMarkup();
 
   if (!countrySearch) {
-    clearMarkup();
     return;
   }
 
@@ -29,13 +28,10 @@ function onSearch(e) {
 
 function foundCountry(countries) {
   if (countries.length > 10) {
-    clearMarkup();
     tooManyMatchesFound();
   } else if (countries.length > 1 && countries.length <= 10) {
-    clearMarkup();
     renderCountryMarkup(countriesList, countries);
   } else if (countries.length === 1) {
-    clearMarkup();
     renderCountryMarkup(countriesMarkup, countries);
   } else {
     noResult();
@@ -58,7 +54,7 @@ function onError(error) {
 function tooManyMatchesFound() {
   error({
     text: 'Too many matches found. Please, enter a more specific query!',
-    delay: 1000,
+    delay: 2000,
   });
 }
 
